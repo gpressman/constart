@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
   resources :venues
 
-  devise_for :users
+  
+
+  root 'page#home'
+
+  get '/user_page' => 'page#user_page'
+
+  post '/process_user_data/' => 'page#process_user_data'
+
+  post '/request_concert' => 'page#request_concert'
+
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  get '/user_functions' => 'page#user_functions', as: 'user_functions'
+
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,4 +70,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
