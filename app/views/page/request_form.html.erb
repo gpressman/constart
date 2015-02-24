@@ -1,0 +1,23 @@
+<%= form_tag(request_concert_path) do %>
+
+
+
+<label for="artist">artist</label> 
+<input type="text" name="artist">
+
+<label for="date">date request</label> 
+<input type="date" name="date">
+
+<label for="city">city</label>
+<input type="text" name="city">
+
+<label for="venue">venue</label> 
+<input type="text" name="venue">
+
+
+
+
+
+<div> <%= submit_tag 'Request' %> </div>
+
+<% end %>

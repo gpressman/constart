@@ -19,19 +19,4 @@
 
 
 
-<%= form_tag(request_concert_path) do %>
-
-
-
-<label for="artist">artist</label> 
-<input type="text" name="artist">
-
-<label for="venue">venue</label> 
-<input type="text" name="venue">
-
-<label for="date">date request</label> 
-<input type="date" name="date">
-
-<div> <%= submit_tag 'Request' %> </div>
-
-<% end %>
+<%= link_to("Request a concert", request_form_path) %>

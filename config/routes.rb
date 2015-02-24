@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/user_functions' => 'page#user_functions', as: 'user_functions'
 
+  get '/request_form' => 'page#request_form', as: 'request_form'
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

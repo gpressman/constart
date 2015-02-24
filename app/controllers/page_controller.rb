@@ -13,7 +13,7 @@ class PageController < ApplicationController
 
   def edit
   @user = current_user
- 
+
   end
 
   def process_user_data
@@ -32,6 +32,7 @@ class PageController < ApplicationController
 
 
   def request_concert
+  	render text: "text"
 
   end
 
