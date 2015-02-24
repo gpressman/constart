@@ -9,11 +9,13 @@
 <input type="date" name="date">
 
 <label for="city">city</label>
-<input type="text" name="city">
+<input type="dropdown" name="city">
 
-<label for="venue">venue</label> 
-<input type="text" name="venue">
-
+<select name="venue_id">
+	<% @venues.each do |venue| %>
+<option value="<%=venue.id%>"><%=venue.name%></option>
+    <% end %>
+</select>
 
 
 

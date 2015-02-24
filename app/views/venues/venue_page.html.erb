@@ -1,0 +1,15 @@
+<%   current_user.venue.requests.each do |request| %>
+<%=  request.artist %>
+<%=  request.city  %>
+<%=  request.date %>
+<% end %>
+
+<%= form_for [@request] do |f| %>
+	<%= f.label :artist %>
+	<%= f.label :date %>
+	<%= f.label :ticket_price %>
+	<%= f.label :tickets_required %>
+	<%= f.label :date_campaign_ends %>
+<% end %>
+
+

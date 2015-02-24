@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   post '/process_user_data/' => 'page#process_user_data'
 
-  post '/request_concert' => 'page#request_concert'
+  post '/request_concert' => 'requests#request_concert'
 
   devise_for :users, :controllers => { :registrations => "registrations" }
 

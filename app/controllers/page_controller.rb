@@ -1,4 +1,6 @@
 class PageController < ApplicationController
+
+
   def home
   end
 
@@ -29,12 +31,12 @@ class PageController < ApplicationController
 	end
   end
 
-
-
-  def request_concert
-  	render text: "text"
-
+  def request_form
+  	@venues= Venue.all
   end
+
+
+  
 
 
 end
