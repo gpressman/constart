@@ -1,0 +1,24 @@
+
+<%=  @request.artist %>
+<%=  @request.city  %>
+<%=  @request.date %>
+
+<%= form_for @request do |f| %>
+
+	
+	<%= f.label :date %>
+	<%= f.date_field :date %>
+
+	<%= f.label :ticket_price %>
+	<%= f.text_field :ticket_price %>
+
+
+	<%= f.label :tickets_required %>
+	<%= f.text_field :tickets_required %>
+
+
+	<%= f.label :date_campaign_ends %>
+	<%= f.date_field :date_campaign_ends %>
+
+	<%= f.submit 'Send Concert' %>
+<% end %>

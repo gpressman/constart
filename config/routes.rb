@@ -19,6 +19,10 @@ Rails.application.routes.draw do
 
   get '/venue_page' => 'venues#venue_page'
 
+  get '/venue_page/:id' => 'venues#return_form', as: 'return_form'
+
+  post 'request' => 'requests#return_form'
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

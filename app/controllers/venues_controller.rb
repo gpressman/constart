@@ -62,9 +62,11 @@ class VenuesController < ApplicationController
     end
   end
 
-  
+  def return_form
+    @request =Request.find(params[:id])
+  end 
 
- 
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
