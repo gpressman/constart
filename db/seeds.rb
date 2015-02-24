@@ -6,8 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-10.times do
-users =User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "password")
+
+venues =Venue.create(name: "Union Transfer", manager_name: "Charles Barkley", phone_number: "610-331-4327", address: "spring garden or some shit", city: "Philly", capacity: 1000, adult: false, user_id: 1)
 
 	 
-end
+
+
+
