@@ -2,4 +2,15 @@
 <p> Birthday: <%= @user.birthday %> <p>
 <p> Address: <%= @user.address %> <p>
 <p> Phone number: <%= @user.phone_number %> <p>
-				
+
+<%   current_user.concerts.each do |concert| %>
+<%=  concert.artist %>
+<%=  concert.city  %>
+<%=	 concert.venue.name %>
+<%=  concert.date %>
+<%=  concert.ticket_price %>
+<%=  concert.tickets_required  %>
+<%=  concert.date_campaign_ends %>
+<%=  concert.description %>
+
+<% end %>

@@ -30,7 +30,8 @@
 <%=  request.ticket_price %>
 <%=  request.tickets_required  %>
 <%=  request.date_campaign_ends %>
+<%=  request.description %>
   
-<%= link_to("Accept", accept_path, method: :post  ) %>
-<%= link_to('Cancel', decline_path, method: :post,  { confirm: 'Are you sure?' }) %>
+<%= link_to("Accept", accept_path(request.id), method: :post  ) %>
+<%= link_to('Cancel', decline_path(request.id), method: :post) %>
 <% end %>

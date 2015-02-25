@@ -11,11 +11,17 @@
 <label for="city">city</label>
 <input type="dropdown" name="city">
 
+<label for="description">description</label>
+<textarea rows="4" cols="50" name="description">
+</textarea>
+
 <select name="venue_id">
 	<% @venues.each do |venue| %>
 <option value="<%=venue.id%>"><%=venue.name%></option>
     <% end %>
 </select>
+
+
 
 
 

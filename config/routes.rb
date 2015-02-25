@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   patch '/request.:id' => 'requests#update'
 
-  post '/accept/:id' => 'concerts#accept', as: 'accept'
+  post '/accept/:id' => 'concerts#accept', as: 'accept/'
 
   post '/decline/:id' => 'requests#decline', as: 'decline'
 
