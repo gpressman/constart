@@ -23,6 +23,12 @@ Rails.application.routes.draw do
 
   post 'request' => 'requests#return_form'
 
+  patch '/request.:id' => 'requests#update'
+
+  post '/accept/:id' => 'concerts#accept', as: 'accept'
+
+  post '/decline/:id' => 'requests#decline', as: 'decline'
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

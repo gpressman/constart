@@ -20,3 +20,17 @@
 
 
 <%= link_to("Request a concert", request_form_path) %>
+
+    
+<%   current_user.requests.replied.each do |request| %>
+<%=  request.artist %>
+<%=  request.city  %>
+<%=	 request.venue.name %>
+<%=  request.date %>
+<%=  request.ticket_price %>
+<%=  request.tickets_required  %>
+<%=  request.date_campaign_ends %>
+  
+<%= link_to("Accept", accept_path, method: :post  ) %>
+<%= link_to('Cancel', decline_path, method: :post,  { confirm: 'Are you sure?' }) %>
+<% end %>
