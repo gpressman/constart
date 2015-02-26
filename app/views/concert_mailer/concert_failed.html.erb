@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to example.com, <%= @user.name %></h1>
+    <p>
+      Sorry, unfortunately <%= @concert.artist %> in  <%=@concert.city%> has not received enough support.  You will receive a refund for the ticket price in coming days.<br>
+    </p>
+  
+    <p><%= link_to("Sign in" new_user_session_path) %><%= link_to("Constart" home_path) %></p>
+  </body>
+</html>

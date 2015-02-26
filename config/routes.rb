@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   
 
-  root 'page#home'
+  root 'page#home', as: 'home'
 
   get '/user_page' => 'page#user_page'
 

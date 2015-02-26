@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Congratulations! <%= @concert.artist %> in  <%=@concert.city%> has been successfully funded.  You will be receiving an email from <%= @concert.venue.name %> with details on how to acquire your ticket.
+    </p>
+    
+    <p><%= link_to("Sign in" new_user_session_path) %><%= link_to("Constart" home_path) %></p>
+  </body>
+</html>
