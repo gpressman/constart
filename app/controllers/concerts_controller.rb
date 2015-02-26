@@ -20,6 +20,10 @@ before_action :authenticate_user!, only: :purchase
 	def purchase
 		@concert = Concert.find(params[:id])
 		@concert.tickets_required -= 1
+  		@user= current_user
+   		unless @concert.users.include?(@user)
+     		@concert.users.push(@user)
+     	end
 		if @concert.save
 			flash[:alert] = "Ticket purchased"
 			redirect_to(show_share_path)
@@ -32,3 +36,5 @@ end
 
 
 
+ 
+  
