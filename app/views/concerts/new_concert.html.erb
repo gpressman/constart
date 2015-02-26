@@ -1,0 +1,11 @@
+
+<%=  @concert.artist %>
+<%=  @concert.city  %>
+<%=	 @concert.venue.name %>
+<%=  @concert.date %>
+<%=  @concert.ticket_price %>
+<%=  @concert.tickets_required  %>
+<%=  @concert.date_campaign_ends %>
+<%=  @concert.description %>
+
+<%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post  ) %>

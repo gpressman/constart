@@ -25,9 +25,13 @@ Rails.application.routes.draw do
 
   patch '/request.:id' => 'requests#update'
 
-  post '/accept/:id' => 'concerts#accept', as: 'accept/'
+  post '/accept/:id' => 'concerts#accept', as: 'accept'
 
   post '/decline/:id' => 'requests#decline', as: 'decline'
+
+  get '/new_concert/:id' => 'concerts#new_concert', as: 'show_share'
+
+  post '/purchase/:id' => 'concerts#purchase', as: 'buy_ticket'
 
   end
   # The priority is based upon order of creation: first created -> highest priority.
