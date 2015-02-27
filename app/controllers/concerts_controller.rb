@@ -4,10 +4,12 @@ before_action :authenticate_user!, only: :purchase
 
 	def accept
 	  	@request= Request.find(params[:id])
-	  	@request.status = "accepted"
 	  	@concert = Concert.new(@request.to_concert_hash)
 		if @concert.save
-  		   redirect_to(show_share_path(concert.id))
+		  	@request.status = "accepted"
+		  	@request.concert_id = @concert.id
+			@request.save
+			redirect_to(show_share_path(@concert.id))
   		else
 			render("user_functions")
         end
@@ -33,9 +35,22 @@ before_action :authenticate_user!, only: :purchase
 		end
 	end
 
+	def email_users
+		@concert = Concert.find(params[:id])
+	end
+
 	def mass_email
-		@user = current_user
-		
+		puts 'YO THIS IS THE EMAIL STUFF AND STUFF'
+		p params[:id]
+		p params[:email_users]
+
+		@concert = Concert.find(params[:id])
+		if ConcertMailer.mass_email(@concert, params[:email_users]).deliver_now
+			flash[:alert] = "Email sent"
+			redirect_to(user_functions_path)
+		else
+			render("user_functions")
+		end
 	end
 end
 

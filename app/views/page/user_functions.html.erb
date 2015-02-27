@@ -18,7 +18,7 @@
 <% end %>
 
 
-
+<%= link_to('User page', user_path) %>
 <%= link_to("Request a concert", request_form_path) %>
 
     
@@ -34,4 +34,5 @@
   
 <%= link_to("Accept", accept_path(request.id), method: :post  ) %>
 <%= link_to('Cancel', decline_path(request.id), method: :post) %>
+
 <% end %>

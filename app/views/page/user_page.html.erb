@@ -1,21 +1,20 @@
-<p> Name: <%= @user.name %> <p>
+ <p> Name: <%= @user.name %> <p>
 <p> Birthday: <%= @user.birthday %> <p>
 <p> Address: <%= @user.address %> <p>
 <p> Phone number: <%= @user.phone_number %> <p>
 
-<%   current_user.concerts.each do |concert| %>
-<%=  concert.artist %>
-<%=  concert.city  %>
-<%=	 concert.venue.name %>
-<%=  concert.date %>
-<%=  concert.ticket_price %>
-<%=  concert.tickets_required  %>
-<%=  concert.date_campaign_ends %>
-<%=  concert.description %>
+<%   current_user.requests.each do |request| %>
+<%=  request.artist %>
+<%=  request.city  %>
+<%=	 request.venue.name %>
+<%=  request.date %>
+<%=  request.ticket_price %>
+<%=  request.tickets_required  %>
+<%=  request.date_campaign_ends %>
+<%=  request.description %>
 
-<%= form_tag(mass_email_path) do %>
-<label for="email_users">Email your concert goers</label>
-<textarea rows="4" cols="50" name="email_users">
-</textarea>
-<%= submit_tag 'Request' %>
+<%= link_to("Mass email", concert_email_path(request.concert_id)) %>
+
 <% end %>
+
+ 

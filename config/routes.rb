@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :views
   resources :venues
 
   
 
   root 'page#home', as: 'home'
 
-  get '/user_page' => 'page#user_page'
+  get '/user_page' => 'page#user_page', as: 'user'
 
   post '/process_user_data/' => 'page#process_user_data'
 
@@ -33,7 +34,11 @@ Rails.application.routes.draw do
 
   post '/purchase/:id' => 'concerts#purchase', as: 'buy_ticket'
 
-  post 'mass_email' => 'concerts#mass_email', as: 'mass_email'
+  get 'mass_email/concert/:id' => 'concerts#email_users', as: 'concert_email'
+  
+  post 'mass_email/:id' => 'concerts#mass_email', as: 'mass_email'
+
+  
 
   end
   # The priority is based upon order of creation: first created -> highest priority.

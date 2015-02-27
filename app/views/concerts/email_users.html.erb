@@ -1,0 +1,6 @@
+<%= form_tag (mass_email_path(params[:id]))  do %>
+<label for="email_users">Email your concert goers</label>
+<textarea rows="4" cols="50" name="email_users">
+</textarea>
+<%= submit_tag 'Request' %>
+<% end %>

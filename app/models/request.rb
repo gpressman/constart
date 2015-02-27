@@ -1,6 +1,7 @@
 class Request < ActiveRecord::Base
 	belongs_to :venue
 	belongs_to :user
+    belongs_to :concert
 	
 	scope :sent, -> {where(status: "sent")}
 	scope :replied, -> { where(status: "replied_to") }
