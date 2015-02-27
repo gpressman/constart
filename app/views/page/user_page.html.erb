@@ -3,7 +3,7 @@
 <p> Address: <%= @user.address %> <p>
 <p> Phone number: <%= @user.phone_number %> <p>
 
-<%   current_user.requests.each do |request| %>
+<%   current_user.requests.accepted.each do |request| %>
 <%=  request.artist %>
 <%=  request.city  %>
 <%=	 request.venue.name %>

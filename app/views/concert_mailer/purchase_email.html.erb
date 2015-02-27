@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Ticket purchased for <%= @concert.artist %> in <%= @concert.city %>.  If it receives enough support you will receive information on how to retrieve your ticket, if not you will receive an email.
+    </p>
+    <br>
+    
+    <p><%= link_to("Sign in", new_user_session_path) %><%= link_to("Constart", home_path) %></p>
+  </body>
+</html>

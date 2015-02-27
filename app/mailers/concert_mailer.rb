@@ -21,5 +21,11 @@ class ConcertMailer < ApplicationMailer
 		@emails.push(concert.venue.user.email)
 		mail(to: @emails, subject: "#{concert.artist} in #{concert.city} has failed to reach enough support in time.")
 	end
+
+	def purchase_email(concert, user)
+		@concert = concert
+		@user = user.email
+		mail(to: @user, subject: "#{concert.artist} in #{concert.city} purchase confirmation" )
+	end
 end
 

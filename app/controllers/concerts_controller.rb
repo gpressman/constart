@@ -7,6 +7,7 @@ before_action :authenticate_user!, only: :purchase
 	  	@concert = Concert.new(@request.to_concert_hash)
 		if @concert.save
 		  	@request.status = "accepted"
+		  	@concert.status = "in_progress"
 		  	@request.concert_id = @concert.id
 			@request.save
 			redirect_to(show_share_path(@concert.id))
@@ -27,7 +28,11 @@ before_action :authenticate_user!, only: :purchase
      		@concert.users.push(@user)
      	end
 		if @concert.save
+			ConcertMailer.purchase_email(@user).deliver_now
 			flash[:alert] = "Ticket purchased"
+			if @concert.tickets_required = 0 
+				@concert.status = "funded"
+				ConcertMailer.concert_funded(@concert).deliver_now
 			redirect_to(show_share_path)
 		else
 			flash[:alert] = "We couldn't process your order, try again later."
@@ -40,10 +45,6 @@ before_action :authenticate_user!, only: :purchase
 	end
 
 	def mass_email
-		puts 'YO THIS IS THE EMAIL STUFF AND STUFF'
-		p params[:id]
-		p params[:email_users]
-
 		@concert = Concert.find(params[:id])
 		if ConcertMailer.mass_email(@concert, params[:email_users]).deliver_now
 			flash[:alert] = "Email sent"
