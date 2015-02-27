@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   post '/purchase/:id' => 'concerts#purchase', as: 'buy_ticket'
 
+  post 'mass_email' => 'concerts#mass_email', as: 'mass_email'
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

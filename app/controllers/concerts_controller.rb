@@ -32,6 +32,11 @@ before_action :authenticate_user!, only: :purchase
 			redirect_to(show_share_path)
 		end
 	end
+
+	def mass_email
+		@user = current_user
+		
+	end
 end
 
 
