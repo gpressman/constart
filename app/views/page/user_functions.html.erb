@@ -1,8 +1,11 @@
+ <p> Name: <%= @user.name %> <p>
+<p> Birthday: <%= @user.birthday %> <p>
+<p> Address: <%= @user.address %> <p>
+<p> Phone number: <%= @user.phone_number %> <p>
+
+<p> Update user info </p>
 
 <%= form_tag(process_user_data_path) do %>
-
-
-
 <label for="name">Your name</label> 
 <input type="text" name="name">
 
@@ -18,9 +21,26 @@
 <% end %>
 
 
-<%= link_to('User page', user_path) %>
+<p> Active concerts </p>
+<%   current_user.requests.accepted.each do |request| %>
+<%=  request.artist %>
+<%=  request.city  %>
+<%=	 request.venue.name %>
+<%=  request.date %>
+<%=  request.ticket_price %>
+<%=  request.tickets_required  %>
+<%=  request.date_campaign_ends %>
+<%=  request.description %>
+
+<%= link_to("Mass email", concert_email_path(request.concert_id)) %>
+
+<% end %>
+
+
+
 <%= link_to("Request a concert", request_form_path) %>
 
+<p> Concerts awaiting approval </p>
     
 <%   current_user.requests.replied.each do |request| %>
 <%=  request.artist %>

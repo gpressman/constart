@@ -10,6 +10,7 @@ class PageController < ApplicationController
   end
 
   def user_functions
+    @user= current_user
   end
   
   def edit
@@ -21,8 +22,9 @@ class PageController < ApplicationController
   	logger.info params['phone']
   	logger.info params['address']
   	@user= current_user
+    flash[:alert] = "Info updated"
     if @user.update_attributes(params.permit(:name, :address, :phone_number))
-  		redirect_to action: 'user_page', controller: 'page'
+  		redirect_to(user_functions_path)
   	else
   	  render "user_functions"
     end
