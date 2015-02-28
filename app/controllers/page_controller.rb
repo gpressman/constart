@@ -4,6 +4,8 @@ class PageController < ApplicationController
   def home
   end
 
+  def about
+  end
 
   def user_page
     @user = current_user

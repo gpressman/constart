@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   root 'page#home', as: 'home'
 
+  get 'about' => 'page#about', as: 'about'
+
   get '/user_page' => 'page#user_page', as: 'user'
 
   post '/process_user_data/' => 'page#process_user_data'
