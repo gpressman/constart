@@ -8,6 +8,9 @@
 <%=  @concert.date_campaign_ends %>
 <%=  @concert.description %>
 
+
+<img src="<%= @artist['image'][4]['#text'] %>" alt="">
+
 <%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post  ) %>
 
 <% end %>

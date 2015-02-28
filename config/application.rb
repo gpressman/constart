@@ -14,7 +14,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 if Rails.env.development?
-    Dotenv.load(File.expand_path("../../.env.#{Rails.env}",_FILE_))
+ Dotenv.load(File.expand_path("../../.env.#{Rails.env}", __FILE__))
 end
 module Constart
   class Application < Rails::Application

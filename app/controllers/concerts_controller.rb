@@ -1,4 +1,5 @@
 class ConcertsController < ApplicationController
+include ApplicationHelper
 before_action :authenticate_user!, only: :purchase 
 
 
@@ -18,6 +19,7 @@ before_action :authenticate_user!, only: :purchase
 
 	def new_concert
 		@concert = Concert.find(params[:id])
+		@artist = artist_getinfo(@concert.artist)
 	end
 
 	def purchase
@@ -55,6 +57,10 @@ before_action :authenticate_user!, only: :purchase
 		else
 			render("user_functions")
 		end
+	end
+
+	def random
+		@random_concert =Concert.sample(3)
 	end
 end
 
