@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   
   post 'mass_email/:id' => 'concerts#mass_email', as: 'mass_email'
 
+  post 'refuse/:id' => 'requests#refuse', as: 'refuse' 
+
   
 
   end

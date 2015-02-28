@@ -11,9 +11,9 @@ class RequestsController < ApplicationController
 	@request.status = "sent"
   	
 	  	if !@request.save
-	  		render ('request_form')
+	  		render('request_form')
 	  	else
-	  		redirect_to(user_page_path)
+	  		redirect_to(user_path)
 	  	end
   end
 
@@ -37,7 +37,7 @@ class RequestsController < ApplicationController
 	@request = current_user.venue.requests.find(params[:id])
 	@request_info = params.require(:request).permit(:venue_id, :artist, :date, :ticket_price, :tickets_required, :date_campaign_ends)
  	@request.status = "replied_to"
- 	if @request.update(@request_info)
+ 	if  @request.update(@request_info)
 		redirect_to(venue_page_path) 
  	else 
 		render ("return_form")
@@ -47,6 +47,17 @@ class RequestsController < ApplicationController
 
    def venue_page
    
+   end
+
+   def refuse
+   	   @venue = venue.find(params[:id])
+   	   @request = request.id
+   	   @request.status = "refused"
+   	    if @request.save
+   	   	   redirect_to(venue_page_path)
+   	   	else
+   	   		render("venue_page")
+   	   	end
    end
 
 end

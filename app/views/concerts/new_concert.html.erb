@@ -1,4 +1,4 @@
-
+<% if @concert.status = "in_progress" %>
 <%=  @concert.artist %>
 <%=  @concert.city  %>
 <%=	 @concert.venue.name %>
@@ -9,3 +9,5 @@
 <%=  @concert.description %>
 
 <%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post  ) %>
+
+<% end %>

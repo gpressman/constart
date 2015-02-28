@@ -5,9 +5,9 @@ before_action :authenticate_user!, only: :purchase
 	def accept
 	  	@request= Request.find(params[:id])
 	  	@concert = Concert.new(@request.to_concert_hash)
+		@concert.status = "in_progress"
 		if @concert.save
-		  	@request.status = "accepted"
-		  	@concert.status = "in_progress"
+		  	@request.status = "accepted"	
 		  	@request.concert_id = @concert.id
 			@request.save
 			redirect_to(show_share_path(@concert.id))
@@ -28,12 +28,15 @@ before_action :authenticate_user!, only: :purchase
      		@concert.users.push(@user)
      	end
 		if @concert.save
-			ConcertMailer.purchase_email(@user).deliver_now
+			ConcertMailer.purchase_email(@concert, @user).deliver_now
 			flash[:alert] = "Ticket purchased"
-			if @concert.tickets_required = 0 
-				@concert.status = "funded"
+			if @concert.tickets_required < 1 
+			   @concert.status = "funded"
+			   @concert.save
 				ConcertMailer.concert_funded(@concert).deliver_now
+			end
 			redirect_to(show_share_path)
+
 		else
 			flash[:alert] = "We couldn't process your order, try again later."
 			redirect_to(show_share_path)
