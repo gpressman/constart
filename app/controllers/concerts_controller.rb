@@ -59,9 +59,7 @@ before_action :authenticate_user!, only: :purchase
 		end
 	end
 
-	def random
-		@random_concert =Concert.sample(3)
-	end
+	
 end
 
 

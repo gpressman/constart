@@ -6,4 +6,5 @@ class Concert < ActiveRecord::Base
 	scope :in_progress, -> {where(status: "in_progress")}
 	scope :funded, -> {where(status: "funded")}
 	scope :failed, -> {where(failed: "funded")}
+	
 end

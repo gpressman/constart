@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
 #   end
 # end
 
-
 after_filter :store_location
 
 def store_location
