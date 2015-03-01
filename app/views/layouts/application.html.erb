@@ -77,7 +77,7 @@
              <% Concert.limit(3).order("RANDOM()").each do |concert| %>
                <div class="row">
                  <li><%= concert.artist %></li>
-                 <li>on <%= concert.date %></li>
+                 <li>on <%= concert.date.strftime("%-m-%-d-%Y") %> at <%=concert.time%></li>
                  <li>for $<%= concert.ticket_price %></li>
                  <li><%= concert.tickets_required %> tickets until funded</li>
                  <li>by <%= concert.date_campaign_ends %></li>

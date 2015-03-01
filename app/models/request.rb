@@ -18,6 +18,7 @@ class Request < ActiveRecord::Base
         date_campaign_ends: date_campaign_ends,
         city: city,
         description: description,
+        time: time,
         venue_id: venue_id,
         user_id: user_id
     }

@@ -4,10 +4,10 @@
 <img src="<%= @artist['image'][4]['#text'] %>" alt="">
 <p><%=  @concert.artist %></p>
 <p>playing in <%=  @concert.city  %> at <%=	 @concert.venue.name %></p>
-<p> on <%=  @concert.date.strftime("%-m-%-d-%Y") %> </p>
+<p> on <%=  @concert.date.strftime("%-m-%-d-%Y") %> at <%= @concert.time %> </p>
 <p> for $<%=  @concert.ticket_price %></p>
 <p> <%=  @concert.tickets_required  %> tickets left until funded </p>
-<%=  @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %>
+<p> <%=  @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %> </p>
 <%=  @concert.description %>
 
 
