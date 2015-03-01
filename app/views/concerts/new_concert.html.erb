@@ -1,15 +1,17 @@
+
+
 <% if @concert.status = "in_progress" %>
-<%=  @concert.artist %>
-<%=  @concert.city  %>
-<%=	 @concert.venue.name %>
-<%=  @concert.date %>
-<%=  @concert.ticket_price %>
-<%=  @concert.tickets_required  %>
-<%=  @concert.date_campaign_ends %>
+<img src="<%= @artist['image'][4]['#text'] %>" alt="">
+<p><%=  @concert.artist %></p>
+<p>playing in <%=  @concert.city  %> at <%=	 @concert.venue.name %></p>
+<p> on <%=  @concert.date.strftime("%-m-%-d-%Y") %> </p>
+<p> for $<%=  @concert.ticket_price %></p>
+<p> <%=  @concert.tickets_required  %> tickets left until funded </p>
+<%=  @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %>
 <%=  @concert.description %>
 
 
-<img src="<%= @artist['image'][4]['#text'] %>" alt="">
+
 
 <%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post  ) %>
 
