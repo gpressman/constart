@@ -2,7 +2,81 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-home-row {
-	background: url('http://rockrevoltmagazine.com/wp-content/uploads/2014/09/Umphrey-McGee.jpg');
+.home-body {
+	
+	background: url('/Umphrey-Mcgee.jpg');
+	background-repeat: 	no-repeat;
+	background-size: 100%;
 	
 }
+
+.about-body {
+	background: url('/rjd2 copy.jpg');
+	background-repeat: 	no-repeat;
+	background-size: 100%;
+	height: 100%;	
+	
+}
+
+.heres-how a, .heres-how a:visited{
+	color: red;
+
+}
+
+.explanation-row {
+	margin-top: 240px;
+	color: #B3A7A2;
+	
+	font-weight: 600;
+}
+
+.bottom-row {
+	margin-top: 100px;
+	margin-right: 400px;
+	color: white;
+	font-weight: 600;
+
+}
+
+.about-explain {
+	color: white;
+	font-size: 1.2em;
+}
+
+
+.home-header {
+	color: white;
+	font-weight: 700;
+}
+
+.home-descript {
+	color: #CBCCC2;
+}
+
+.button-find-out {
+	background-color: #ED2658;
+}
+
+.button-find-out a, .button-find-out a:visited {
+	color: white;
+}
+
+.button-get-started {
+	background-color: #ED2658;
+	border: borderless
+}
+
+.button-get-started a, .button-get-started a:visited {
+	color: white;
+
+}
+
+.about-container {
+	
+}
+
+
+.explanation {
+	
+}
+

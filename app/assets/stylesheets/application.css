@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+.sidebar-pic {
+	float: right, top;
+}
+.left {
+	float: left;
+	border: 1px;
+}
+
+.right {
+	float: right;
+}
+
+.sidebar-concert {
+	border-bottom: solid 1px;
+	padding: 5%;
+
+}
+
+.sidebar-nav {
+	opacity: .8;
+}
