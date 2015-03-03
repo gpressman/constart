@@ -1,29 +1,29 @@
-<p> To request a concert, fill out this form, and a venue will send you a response. <p>
+<p> To request a concert, fill out this form, and the venue will send you a response. <p>
 
 <%= form_tag(request_concert_path) do %>
 
 
 <form class="form-inline">
 <div class="form-group">
-<label for="artist">artist</label> 
+<label for="artist">Artist</label> 
 <input type="text" class="form-control" name="artist">
 </div>
 
 <form class="form-inline">
 <div class="form-group">
-<label for="date">date request</label> 
+<label for="date">Date request</label> 
 <input type="date" class="form-control" name="date">
 </div>
 
 <form class="form-inline">
 <div class="form-group">
-<label for="city">city</label>
+<label for="city">City</label>
 <input type="dropdown" class="form-control" name="city">
 </div>
 
 <form class="form-inline">
 <div class="form-group">
-<label for="description">description</label>
+<label for="description">Description</label>
 <textarea rows="4" cols="50" class="form-control" name="description">
 </textarea>
 </div>

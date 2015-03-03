@@ -4,8 +4,8 @@
 			<div class="row main-home-row">
 				<h3 class="home-header">Want your favorite artists to come to town?</h1>
 				<h4 class="home-descript"> You can be the one to make it happen.</p>
-				<button class="button-find-out"><%=link_to("Find out how", about_path)%></button>
-				<button class="button-get-started"><%=link_to("Get started here", new_view_registration_path)%></button>
+				<%=link_to("Find out how", about_path, class:"btn button-find-out")%>
+				<%=link_to("Get started here", new_view_registration_path, class:"btn button-get-started")%>
 			</div>
 			<div class="row bottom-row">
 			<p class="home-body-text">	Does it seem like your favorite band never comes to your town? <br>They don't hate you. Someone needs to invite  them. <br>You can be the one to make it happen, <span class="heres-how"><%=link_to("here's how.", about_path)%></span></p>

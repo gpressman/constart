@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
 	@request = Request.new(@request_info)
 	@request.user_id = current_user.id
 	@request.status = "sent"
-  	flash[:alert] = "Concert Requested"
+  	flash[:notice] = "Concert Requested"
 	  	if  @request.save
 	  		redirect_to(user_functions_path)
 	  	else
@@ -42,7 +42,7 @@ class RequestsController < ApplicationController
 	@request = current_user.venue.requests.find(params[:id])
 	@request_info = params.require(:request).permit(:venue_id, :artist, :date, :ticket_price, :tickets_required, :date_campaign_ends)
  	@request.status = "replied_to"
- 	flash[:alert] = "Reply sent"
+ 	flash[:notice] = "Reply sent"
  	if  @request.update(@request_info)
 		redirect_to(venue_page_path) 
  	else 

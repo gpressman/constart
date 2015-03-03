@@ -8,7 +8,7 @@
   
   <div class="row">
   	  <div class="col-sm-4">
-			<p> Active concerts </p>
+			<h3> Active concerts </h3>
 			<% current_user.requests.accepted.each do |request| %>
 				<ul class="active-concert-list">
 					<li class="accepted-artist"><%=  request.artist %></li>
@@ -27,7 +27,7 @@
 			<% end %>
   	  </div>
 	  <div class="col-sm-4">
-		  <p> Concerts awaiting approval </p>
+		  <h3>Concerts awaiting approval </h3>
 		  <% current_user.requests.replied.each do |request| %>
 		  	<ul class="awaiting-approval-list">
 		  		<li class="awaiting-approval-artist"> <%=  request.artist %></li>
@@ -40,9 +40,9 @@
 				<li>Tickets required: <%=  request.tickets_required  %></li>
 				<li>Date campaign ends: <%=  request.date_campaign_ends %></li>
 				<li>Description: <%=  request.description %></li>	
-				<li><button type="button" class="btn btn-success">
-				<%= link_to("Accept", accept_path(request.id), method: :post  ) %></button>
-				<button type="button" class="btn btn-danger"><%= link_to('Cancel', decline_path(request.id), method: :post) %></button>
+				<li>
+				<%= link_to("Accept", accept_path(request.id), method: :post, class:"btn btn-success"  ) %>
+				<%= link_to('Cancel', decline_path(request.id), method: :post, class:"btn btn-danger") %>
 			    </li>
 			</ul>
 		  <% end %>

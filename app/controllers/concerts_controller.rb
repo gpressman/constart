@@ -31,7 +31,7 @@ before_action :authenticate_user!, only: :purchase
      	end
 		if @concert.save
 			ConcertMailer.purchase_email(@concert, @user).deliver_now
-			flash[:alert] = "Ticket purchased"
+			flash[:notice] = "Ticket purchased"
 			if @concert.tickets_required < 1 
 			   @concert.status = "funded"
 			   @concert.save
@@ -52,7 +52,7 @@ before_action :authenticate_user!, only: :purchase
 	def mass_email
 		@concert = Concert.find(params[:id])
 		if ConcertMailer.mass_email(@concert, params[:email_users]).deliver_now
-			flash[:alert] = "Email sent"
+			flash[:notice] = "Email sent"
 			redirect_to(user_functions_path)
 		else
 			render("user_functions")

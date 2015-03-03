@@ -13,3 +13,15 @@ module ApplicationHelper
 end
 
 
+def artist_playtrack(artist_name)
+	artist_name =URI.escape(artist_name)
+	artist_info= HTTParty.get("https://api.spotify.com/v1/search?type=artist&q=#{artist_name}")
+	actual_info= JSON.parse(artist_info.body)
+	artist_link= actual_info['artists']['items'][0]['href']
+	top_track = HTTParty.get("#{artist_link}/top-tracks?country=us")
+	track=JSON.parse(top_track.body)
+	track_url= track["tracks"][0]["preview_url"]
+	return track_url
+end
+
+<li><a href="<%=artist_playtrack(concert.artist)%>"></li>
