@@ -1,6 +1,7 @@
 <h2 class="venue-header">Requests for <%=current_user.venue.name %></h2>
 <%   current_user.venue.requests.sent.each do |request| %>
 <ul class="request-list">
+	<li><img src="<%= artist_getinfo(request.artist)['image'][2]['#text'] %>"></li>
 	<li><%=  request.artist %></li>
 	<li><%=  request.city  %></li>
 	<li><%=  request.date.strftime("%-m-%-d-%Y") %></li>

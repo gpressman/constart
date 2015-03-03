@@ -7,7 +7,7 @@ class PageController < ApplicationController
   def about
   end
 
-  def user_page
+  def update_profile
     @user = current_user
   end
 
