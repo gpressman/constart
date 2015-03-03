@@ -23,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'httparty'
 
+gem 'bootstrap_form'
 
 gem "twitter-bootstrap-rails"
 # Use ActiveModel has_secure_password

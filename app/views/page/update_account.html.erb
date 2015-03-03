@@ -1,0 +1,23 @@
+<%= form_tag(process_user_data_path) do %>
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="name">Your name</label> 
+				<input type="text" class="form-control" name="name">
+			</div>	
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="phone_number">Phone</label> 
+				<input type="text" class="form-control" name="phone_number">
+			</div>
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="address">Address</label> 
+				<input type="text" class="form-control" name="address">
+			</div>
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="birthday">Birthday</label> 
+				<input type="text" class="form-control" name="birthday">
+			</div>	
+		<div> <%= submit_tag 'Update' %> </div>
+		<% end %>

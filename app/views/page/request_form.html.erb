@@ -1,31 +1,39 @@
+<p> To request a concert, fill out this form, and a venue will send you a response. <p>
+
 <%= form_tag(request_concert_path) do %>
 
 
-
+<form class="form-inline">
+<div class="form-group">
 <label for="artist">artist</label> 
-<input type="text" name="artist">
+<input type="text" class="form-control" name="artist">
+</div>
 
+<form class="form-inline">
+<div class="form-group">
 <label for="date">date request</label> 
-<input type="date" name="date">
+<input type="date" class="form-control" name="date">
+</div>
 
+<form class="form-inline">
+<div class="form-group">
 <label for="city">city</label>
-<input type="dropdown" name="city">
+<input type="dropdown" class="form-control" name="city">
+</div>
 
+<form class="form-inline">
+<div class="form-group">
 <label for="description">description</label>
-<textarea rows="4" cols="50" name="description">
+<textarea rows="4" cols="50" class="form-control" name="description">
 </textarea>
+</div>
 
 <select name="venue_id">
 	<% @venues.each do |venue| %>
 <option value="<%=venue.id%>"><%=venue.name%></option>
     <% end %>
 </select>
-
-
-
-
-
-
-<div> <%= submit_tag 'Request' %> </div>
+<br>
+<div><input class="btn btn-default" type="submit" value="Submit"<%= submit_tag 'Request' %></div>
 
 <% end %>

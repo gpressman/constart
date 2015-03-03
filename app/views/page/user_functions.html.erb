@@ -1,58 +1,62 @@
- <p> Name: <%= @user.name %> <p>
-<p> Birthday: <%= @user.birthday %> <p>
-<p> Address: <%= @user.address %> <p>
-<p> Phone number: <%= @user.phone_number %> <p>
+<div class="container">
 
-<p> Update user info </p>
+		<p> Name: <%= @user.name %> <p>
+		<p> Birthday: <%= @user.birthday %> <p>
+		<p> Address: <%= @user.address %> <p>
+		<p> Phone number: <%= @user.phone_number %> <p>
+		<p> Update user info </p>
 
-<%= form_tag(process_user_data_path) do %>
-<label for="name">Your name</label> 
-<input type="text" name="name">
+		 <%= link_to("Update Profile", update_profile_path) %>
+ 		 <%= link_to("Request a concert", request_form_path) %>
 
-<label for="phone_number">Phone</label> 
-<input type="text" name="phone_number">
-
-<label for="address">Address</label> 
-<input type="text" name="address">
-
-<label for="birthday">Birthday</label> 
-<input type="text" name="birthday">
-<div> <%= submit_tag 'Update' %> </div>
-<% end %>
-
-
-<p> Active concerts </p>
-<%   current_user.requests.accepted.each do |request| %>
-<%=  request.artist %>
-<%=  request.city  %>
-<%=	 request.venue.name %>
-<%=  request.date %>
-<%=  request.ticket_price %>
-<%=  request.tickets_required  %>
-<%=  request.date_campaign_ends %>
-<%=  request.description %>
-
-<%= link_to("Mass email", concert_email_path(request.concert_id)) %>
-
-<% end %>
-
-
-
-<%= link_to("Request a concert", request_form_path) %>
-
-<p> Concerts awaiting approval </p>
-    
-<%   current_user.requests.replied.each do |request| %>
-<%=  request.artist %>
-<%=  request.city  %>
-<%=	 request.venue.name %>
-<%=  request.date %>
-<%=  request.ticket_price %>
-<%=  request.tickets_required  %>
-<%=  request.date_campaign_ends %>
-<%=  request.description %>
   
-<%= link_to("Accept", accept_path(request.id), method: :post  ) %>
-<%= link_to('Cancel', decline_path(request.id), method: :post) %>
+  <div class="row">
+  	  <div class="col-sm-4">
+			<p> Active concerts </p>
+			<% current_user.requests.accepted.each do |request| %>
+				<ul>
+					<li><%=  request.artist %></li>
+					<li>playing in <%=  request.city  %></li>
+					<li>at <%=	 request.venue.name %></li>
+					<li>on <%=  request.date.strftime("%-m-%-d-%Y") %> at</li>
+					<li><%= request.time %> </li>
+					<li>for $<%=  request.ticket_price %></li>
+					<li><%=  request.tickets_required  %> tickets required</li>
+					<li>by <%=  request.date_campaign_ends %></li>
+					<li><%=  request.description %></li>
+				</ul>
+				<%= link_to("Mass email", concert_email_path(request.concert_id)) %>
+				<%= link_to("Concert page", show_share_path(request.concert_id)) %>
+			<% end %>
+  	  </div>
+	  <div class="col-sm-4">
+		  <p> Concerts awaiting approval </p>
+		  <% current_user.requests.replied.each do |request| %>
+				<%=  request.artist %>
+				<%=  request.city  %>
+				<%=	 request.venue.name %>
+				<%=  request.date.strftime("%-m-%-d-%Y") %>
+				<%=  request.time %>
+				<%=  request.ticket_price %>
+				<%=  request.tickets_required  %>
+				<%=  request.date_campaign_ends %>
+				<%=  request.description %>
+			<%= link_to("Accept", accept_path(request.id), method: :post  ) %>
+			<%= link_to('Cancel', decline_path(request.id), method: :post) %>
+		  <% end %>
+	  </div>
+  </div>
+</div>
 
-<% end %>
+
+
+
+
+
+
+
+
+
+
+
+</div>

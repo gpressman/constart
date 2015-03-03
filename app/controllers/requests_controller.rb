@@ -5,13 +5,13 @@ class RequestsController < ApplicationController
 	end
 
 	def request_concert
-	@request_info = params.permit(:venue_id, :artist, :city, :date)
+	@request_info = params.permit(:venue_id, :artist, :city, :date, :description)
 	@request = Request.new(@request_info)
 	@request.user_id = current_user.id
 	@request.status = "sent"
   	flash[:alert] = "Concert Requested"
 	  	if  @request.save
-	  		redirect_to(user_path)
+	  		redirect_to(user_functions_path)
 	  	else
 	  		render('request_form')
 	  	end
@@ -24,15 +24,15 @@ class RequestsController < ApplicationController
   def accept
   	@request= current_user.venue.requests.find(params[:id])
   	@request.status = "accepted"
-  	redirect_to(user_page_path)
+  	redirect_to(user_functions_path)
   end
 
   def decline
-  	   @request= current_user.venue.requests.find(params[:id])
+  	   @request= Request.find(params[:id])
   	   @request.status = "declined"
   	   flash[:alert] = "Concert declined"
   	   if @request.save
-  	      redirect_to(user_functions_page)
+  	      redirect_to(user_functions_path)
   	  else
           render("user_functions")
   	   end
@@ -56,8 +56,7 @@ class RequestsController < ApplicationController
    end
 
    def refuse
-   	   @venue = venue.find(params[:id])
-   	   @request = request.id
+   	   @request = Request.find(params[:id])
    	   @request.status = "refused"
    	   flash[:alert] = "Concert refused"
    	    if @request.save

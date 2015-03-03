@@ -1,26 +1,24 @@
 
-<%=  @request.artist %>
-<%=  @request.city  %>
-<%=  @request.date %>
-<%   @request.description %>
-<%= form_for @request do |f| %>
+<h3 class="return-description">
+Artist: <%=  @request.artist %>
+<br>City: <%=  @request.city  %>
+<br>Date request: <%=  @request.date %>
+<br>Description: <%   @request.description %>
+</h3>
+
+
+<%= bootstrap_form_for @request do |f| %>
 
 	
-	<%= f.label :date %>
+	
 	<%= f.date_field :date %>
 
-	<%= f.label :time %>
 	<%= f.time_field :time %>
 
-	<%= f.label :ticket_price %>
 	<%= f.text_field :ticket_price %>
 
-
-	<%= f.label :tickets_required %>
 	<%= f.text_field :tickets_required %>
 
-
-	<%= f.label :date_campaign_ends %>
 	<%= f.date_field :date_campaign_ends %>
 
 	<%= f.submit 'Send Concert' %>

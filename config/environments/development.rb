@@ -18,8 +18,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-    user_name:            ENV['gmail_user'],
-    password:             ENV['gmail_password'],
+    user_name:            ENV['Gmail_user'],
+    password:             ENV['Gmail_password'],
     authentication:       'plain',
     enable_starttls_auto: true  }
   # Show full error reports and disable caching.

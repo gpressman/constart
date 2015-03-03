@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   post 'refuse/:id' => 'requests#refuse', as: 'refuse' 
 
+  get 'update_profile' =>'page#update_profile', as: 'update_profile'
+
   
 
   
