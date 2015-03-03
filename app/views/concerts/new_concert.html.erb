@@ -1,18 +1,20 @@
 
 
 <% if @concert.status = "in_progress" %>
-<img src="<%= @artist['image'][4]['#text'] %>" alt="">
-<p><%=  @concert.artist %></p>
-<p>playing in <%=  @concert.city  %> at <%=	 @concert.venue.name %></p>
-<p> on <%=  @concert.date.strftime("%-m-%-d-%Y") %> at <%= @concert.time %> </p>
-<p> for $<%=  @concert.ticket_price %></p>
-<p> <%=  @concert.tickets_required  %> tickets left until funded </p>
-<p> <%=  @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %> </p>
-<%=  @concert.description %>
-
-
-
-
-<%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post  ) %>
+	<p class="artist-p"><%=  @concert.artist %></p>
+	<div class="col-sm-8">
+		<img src="<%= @artist['image'][4]['#text'] %>" alt="">
+		<%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post  ) %>
+	</div>
+	<div class="col-sm-3">
+		<p>Location <%= @concert.city  %> </p> 
+		<p>Venue <%= @concert.venue.name %></p>
+		<p> Date: <%=  @concert.date.strftime("%-m-%-d-%Y") %> at <%= @concert.time %> </p>
+		<p> Price $<%=  @concert.ticket_price %></p>
+		<p> Tickets required to fund: <%= @concert.tickets_required  %> tickets left until funded </p>
+		<p> Date campaign ends:<%= @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %> </p>
+		<p><%=  @concert.description %><p>
+	</div>
+	
 
 <% end %>

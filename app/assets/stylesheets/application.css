@@ -14,9 +14,7 @@
  *= require_self
  */
 
-.sidebar-pic {
-	float: right, top;
-}
+
 .left {
 	float: left;
 	border: 1px;
@@ -34,4 +32,10 @@
 
 .sidebar-nav {
 	opacity: .8;
+}
+
+.sidebar-artist {
+	font-size: 1.5em;
+	border-bottom: ridge 1.8px;
+	padding: 5%;
 }

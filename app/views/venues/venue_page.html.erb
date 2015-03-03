@@ -1,13 +1,15 @@
 <h2 class="venue-header">Requests for <%=current_user.venue.name %></h2>
 <%   current_user.venue.requests.sent.each do |request| %>
 <ul class="request-list">
-<li><%=  request.artist %></li>
-<li><%=  request.city  %></li>
-<li><%=  request.date.strftime("%-m-%-d-%Y") %></li>
-<li><%=  request.description %></li>
-<li><button type="button" class="btn btn-success"><%= link_to("Reply to request", return_form_path(request.id)  ) %></button>
-	<button type="button" class="btn btn-danger"><%= link_to("Decline request", refuse_path(request.id), method: :post) %></button>
-</li>
+	<li><%=  request.artist %></li>
+	<li><%=  request.city  %></li>
+	<li><%=  request.date.strftime("%-m-%-d-%Y") %></li>
+	<li><%=  request.description %></li>
+	<li><button type="button" class="btn btn-success">
+		<%= link_to("Reply to request", return_form_path(request.id)  ) %></button>
+		<button type="button" class="btn btn-danger">
+		<%= link_to("Decline request", refuse_path(request.id), method: :post) %></button>
+    </li>
 </ul>
 <% end %>
 
