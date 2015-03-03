@@ -67,7 +67,7 @@
 
 .button-get-started {
 	background-color: #ED2658;
-	border: borderless
+	
 }
 
 .button-get-started a, .button-get-started a:visited {
@@ -84,3 +84,46 @@
 	
 }
 
+.awaiting-approval-list {
+	list-style-type: none;
+}
+
+.awaiting-approval-artist {
+	font-size: 1.5em;
+	border-bottom: ridge 1.8px;
+	padding: 5%;
+}
+
+.accepted-artist {
+	font-size: 1.5em;
+	border-bottom: ridge 1.8px;
+	padding: 5%;
+}
+
+.active-concert-list {
+	list-style-type: none;
+}
+
+.update-button, .update-button:visited {
+	background-color: #669999;
+	color: white;
+	font-weight: 500;
+}
+
+.request-button, .request-button:visited {
+	color: white;
+	font-weight: 500;
+	background-color: #009933
+}
+
+.show-concert, .show-concert:visited {
+	color: white;
+	font-weight: 500;
+	background-color: #5CE62E;
+}
+
+.mass-email-button {
+	color: white;
+	font-weight: 500;
+	background-color: #FF6600;
+}

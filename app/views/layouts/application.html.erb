@@ -85,7 +85,9 @@
                 </div>
                 <div class='right'>
                   <li class="sidebar-pic"> <img src="<%= artist_getinfo(concert.artist)['image'][2]['#text'] %>"></li>
-                  <li><%= link_to("Buy a ticket", show_share_path(concert.id)) %></li>
+                  <li><button type="button" class="btn btn-success">
+                    <%= link_to("Buy a ticket", show_share_path(concert.id)) %></button>
+                  </li>
                 </div>
                </div>
              <% end %>

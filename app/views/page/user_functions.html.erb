@@ -2,43 +2,49 @@
 
 	
 
-		 <%= link_to("Update Profile", update_profile_path) %>
- 		 <%= link_to("Request a concert", request_form_path) %>
+		<%= link_to("Update Profile", update_profile_path, class:"btn update-button" ) %>
+ 		 <%= link_to("Request a concert", request_form_path, class:"btn request-button") %>
 
   
   <div class="row">
   	  <div class="col-sm-4">
 			<p> Active concerts </p>
 			<% current_user.requests.accepted.each do |request| %>
-				<ul>
-					<li><%=  request.artist %></li>
-					<li>playing in <%=  request.city  %></li>
-					<li>at <%=	 request.venue.name %></li>
-					<li>on <%=  request.date.strftime("%-m-%-d-%Y") %> at</li>
-					<li><%= request.time %> </li>
-					<li>for $<%=  request.ticket_price %></li>
-					<li><%=  request.tickets_required  %> tickets required</li>
-					<li>by <%=  request.date_campaign_ends %></li>
-					<li><%=  request.description %></li>
+				<ul class="active-concert-list">
+					<li class="accepted-artist"><%=  request.artist %></li>
+					<li><img src="<%= artist_getinfo(request.artist)['image'][2]['#text'] %>"></li>
+					<li>City: <%=  request.city  %></li>
+					<li>Venue <%=	 request.venue.name %></li>
+					<li>Date <%=  request.date.strftime("%-m-%-d-%Y") %> at</li>
+					<li>Time: <%= request.time %> </li>
+					<li>Price $<%=  request.ticket_price %></li>
+					<li>Tickets required: <%=  request.tickets_required  %> tickets required</li>
+					<li>Date campaign ends: <%=  request.date_campaign_ends %></li>
+					<li>Description: <%=  request.description %></li>	
 				</ul>
-				<%= link_to("Mass email", concert_email_path(request.concert_id)) %>
-				<%= link_to("Concert page", show_share_path(request.concert_id)) %>
+				<%= link_to("Mass email", concert_email_path(request.concert_id), class:"btn mass-email-button") %>
+				<%= link_to("Concert page", show_share_path(request.concert_id), class:"btn show-concert") %>
 			<% end %>
   	  </div>
 	  <div class="col-sm-4">
 		  <p> Concerts awaiting approval </p>
 		  <% current_user.requests.replied.each do |request| %>
-				<%=  request.artist %>
-				<%=  request.city  %>
-				<%=	 request.venue.name %>
-				<%=  request.date.strftime("%-m-%-d-%Y") %>
-				<%=  request.time %>
-				<%=  request.ticket_price %>
-				<%=  request.tickets_required  %>
-				<%=  request.date_campaign_ends %>
-				<%=  request.description %>
-			<%= link_to("Accept", accept_path(request.id), method: :post  ) %>
-			<%= link_to('Cancel', decline_path(request.id), method: :post) %>
+		  	<ul class="awaiting-approval-list">
+		  		<li class="awaiting-approval-artist"> <%=  request.artist %></li>
+		  		<li><img src="<%= artist_getinfo(request.artist)['image'][2]['#text'] %>"></li>
+				<li>City: <%=  request.city  %></li>
+				<li>Venue: <%=	 request.venue.name %></li>
+				<li>Date: <%=  request.date.strftime("%-m-%-d-%Y") %></li>
+				<li>Time: <%=  request.time %></li>
+				<li>Price $<%=  request.ticket_price %></li>
+				<li>Tickets required: <%=  request.tickets_required  %></li>
+				<li>Date campaign ends: <%=  request.date_campaign_ends %></li>
+				<li>Description: <%=  request.description %></li>	
+				<li><button type="button" class="btn btn-success">
+				<%= link_to("Accept", accept_path(request.id), method: :post  ) %></button>
+				<button type="button" class="btn btn-danger"><%= link_to('Cancel', decline_path(request.id), method: :post) %></button>
+			    </li>
+			</ul>
 		  <% end %>
 	  </div>
   </div>
