@@ -8,6 +8,8 @@ class RequestsController < ApplicationController
 	@request_info = params.permit(:venue_id, :artist, :city, :date, :description)
 	@request = Request.new(@request_info)
 	@request.user_id = current_user.id
+  @request.artist_getimage()
+  @request.artist_getsong()
 	@request.status = "sent"
   	flash[:notice] = "Concert Requested"
 	  	if  @request.save

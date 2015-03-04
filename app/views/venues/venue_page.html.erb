@@ -1,7 +1,7 @@
 <h2 class="venue-header">Requests for <%=current_user.venue.name %></h2>
 <%   current_user.venue.requests.sent.each do |request| %>
 <ul class="request-list">
-	<li><img src="<%= artist_getinfo(request.artist)['image'][2]['#text'] %>"></li>
+	<li><img src="<%=request.picture%>"></li>
 	<li><%=  request.artist %></li>
 	<li><%=  request.city  %></li>
 	<li><%=  request.date.strftime("%-m-%-d-%Y") %></li>
@@ -10,6 +10,8 @@
 		<%= link_to("Reply to request", return_form_path(request.id)  ) %></button>
 		<button type="button" class="btn btn-danger">
 		<%= link_to("Decline request", refuse_path(request.id), method: :post) %></button>
+		<button type="button" class="btn play-button" 
+		data-src="<%=request.song%>">Play</button>
     </li>
 </ul>
 <% end %>

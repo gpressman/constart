@@ -77,7 +77,7 @@
                  <div class='left'>
                    <li class ="sidebar-artist"><%= concert.artist %></li>
                    <li>Date <%= concert.date.strftime("%-m-%-d-%Y") %> </li>
-                   <li>Time: <%=concert.time%></li>
+                   <li>Time: <%=concert.time.strftime("%I:%M %p")%></li>
                    <li>Price $<%= concert.ticket_price %></li>
                    <li>Tickets until funded: <%= concert.tickets_required %> </li>
                    <li>Date campaign ends: <br><%= concert.date_campaign_ends.strftime("%-m-%-d-%Y") %></li>
@@ -85,12 +85,12 @@
                    <li>Description:<%= concert.description %></li>
                 </div>
                 <div class='right'>
-                  <li class="sidebar-pic"> <img src="<%= artist_getinfo(concert.artist)['image'][2]['#text'] %>"></li>
+                  <li class="sidebar-pic"> <img src="<%= concert.picture%>" class="sidebar-picture"></li>
                   <li> 
                     <%= link_to("Buy a ticket", show_share_path(concert.id), class:"btn btn-success" ) %></button>
                   </li>
                   <li>
-                    <button type="button" class="btn play-button" data-src="<%=artist_playtrack(concert.artist)%>"
+                    <button type="button" class="btn play-button" data-src="<%=concert.song%>"
                       >Play</button></li>
                   </li>
                 </div>

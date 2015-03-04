@@ -1,11 +1,11 @@
 
 <h5 class="return-description">
-	<img src="<%= artist_getinfo(@request.artist)['image'][2]['#text'] %>">
+	<img src="<%= @request.picture%>">
 Artist: <%=  @request.artist %>
 <br>City: <%=  @request.city  %>
 <br>Date request: <%=  @request.date %>
 <br>Description: <%   @request.description %>
-</h3>
+</h5>
 
 
 <%= bootstrap_form_for @request do |f| %>

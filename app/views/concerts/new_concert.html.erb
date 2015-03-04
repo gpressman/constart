@@ -2,23 +2,22 @@
 
 <% if @concert.status = "in_progress" %>
 	<p class="artist-p"><%=  @concert.artist %></p>
-	<div class="col-sm-8">
-		<img src="<%= @artist['image'][4]['#text'] %>" alt="">
+	<div class="col-sm-6">
+		<img src="<%= @concert.picture %>"  alt="" class="new-concert-pic">
 		
 	</div>
-	<div class="col-sm-3">
+	<div class="col-sm-5">
 		<ul class="concert-info">
 			<li>Location: <%= @concert.city  %> </li> 
 			<li>Venue: <%= @concert.venue.name %></li>
 			<li> Date: <%=  @concert.date.strftime("%-m-%-d-%Y") %></li>
-			 <li> <%= @concert.time %> </li>
+			<li> <%= @concert.time.strftime("%I:%M %p") %> </li>
 			<li> Price: $<%=  @concert.ticket_price %></li>
-
 			<li> Tickets required to fund: <%= @concert.tickets_required  %></li>
 			<li> Date campaign ends:<%= @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %> </li>
 			<li>Description: <%=  @concert.description %><li>
 			<li><%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post, class:"btn btn-success" ) %>
-			<button type="button" class="btn play-button" data-src="<%=artist_playtrack(@concert.artist)%>">Play</button></li>
+			<button type="button" class="btn play-button" data-src="<%=@concert.song%>">Play</button></li>
 		</ul>
 	</div>
 	
