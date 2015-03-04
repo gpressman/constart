@@ -7,16 +7,21 @@
 		
 	</div>
 	<div class="col-sm-3">
-		<p>Location: <%= @concert.city  %> </p> 
-		<p>Venue: <%= @concert.venue.name %></p>
-		<p> Date: <%=  @concert.date.strftime("%-m-%-d-%Y") %> at <%= @concert.time %> </p>
-		<p> Price: $<%=  @concert.ticket_price %></p>
-		<p> Tickets required to fund: <%= @concert.tickets_required  %> tickets left until funded </p>
-		<p> Date campaign ends:<%= @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %> </p>
-		<p>Description: <%=  @concert.description %><p>
-		<button type="button" class="btn btn-success">
-		<%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post  ) %></button>
+		<ul class="concert-info">
+			<li>Location: <%= @concert.city  %> </li> 
+			<li>Venue: <%= @concert.venue.name %></li>
+			<li> Date: <%=  @concert.date.strftime("%-m-%-d-%Y") %></li>
+			 <li> <%= @concert.time %> </li>
+			<li> Price: $<%=  @concert.ticket_price %></li>
+
+			<li> Tickets required to fund: <%= @concert.tickets_required  %></li>
+			<li> Date campaign ends:<%= @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %> </li>
+			<li>Description: <%=  @concert.description %><li>
+			<li><%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post, class:"btn btn-success" ) %>
+			<button type="button" class="btn play-button">Play</button></li>
+		</ul>
 	</div>
 	
-
+	<audio class="js-player" src="<%=artist_playtrack(@concert.city)%>">
+	
 <% end %>

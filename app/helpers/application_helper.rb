@@ -24,4 +24,6 @@ def artist_playtrack(artist_name)
 	return track_url
 end
 
-<li><a href="<%=artist_playtrack(concert.artist)%>"></li>
+
+
+

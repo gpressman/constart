@@ -9,8 +9,7 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 gem 'devise'
@@ -24,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
 
 gem 'bootstrap_form'
+
 
 gem "twitter-bootstrap-rails"
 # Use ActiveModel has_secure_password

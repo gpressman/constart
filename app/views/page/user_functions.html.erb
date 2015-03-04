@@ -19,7 +19,7 @@
 					<li>Time: <%= request.time %> </li>
 					<li>Price $<%=  request.ticket_price %></li>
 					<li>Tickets required: <%=  request.tickets_required  %> tickets required</li>
-					<li>Date campaign ends: <%=  request.date_campaign_ends %></li>
+					<li>Date campaign ends: <%=  request.date_campaign_ends.strftime("%-m-%-d-%Y") %></li>
 					<li>Description: <%=  request.description %></li>	
 				</ul>
 				<%= link_to("Mass email", concert_email_path(request.concert_id), class:"btn mass-email-button") %>
@@ -38,7 +38,7 @@
 				<li>Time: <%=  request.time %></li>
 				<li>Price $<%=  request.ticket_price %></li>
 				<li>Tickets required: <%=  request.tickets_required  %></li>
-				<li>Date campaign ends: <%=  request.date_campaign_ends %></li>
+				<li>Date campaign ends: <%=  request.date_campaign_ends.strftime("%-m-%-d-%Y") %></li>
 				<li>Description: <%=  request.description %></li>	
 				<li>
 				<%= link_to("Accept", accept_path(request.id), method: :post, class:"btn btn-success"  ) %>

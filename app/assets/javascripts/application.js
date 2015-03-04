@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+
+
+// player.src= "artist_playtrack(artist_name)"
+// player.play();
+
+$(document).ready(function () {
+	var player = document.querySelector('.js-player');
+	var playButton = $(".play-button");
+
+	playButton.click(function () {
+		if (player.paused) {
+			player.play();
+			playButton.text("Pause")
+		}
+		else  {
+			player.pause();
+			playButton.text("Play")
+		}
+		
+	});
+});
+	

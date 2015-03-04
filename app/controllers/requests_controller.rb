@@ -40,7 +40,7 @@ class RequestsController < ApplicationController
 
   def update
 	@request = current_user.venue.requests.find(params[:id])
-	@request_info = params.require(:request).permit(:venue_id, :artist, :date, :ticket_price, :tickets_required, :date_campaign_ends)
+	@request_info = params.require(:request).permit(:venue_id, :artist, :date, :time, :ticket_price, :tickets_required, :date_campaign_ends)
  	@request.status = "replied_to"
  	flash[:notice] = "Reply sent"
  	if  @request.update(@request_info)

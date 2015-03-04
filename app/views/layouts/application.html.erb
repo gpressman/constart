@@ -71,24 +71,28 @@
         <div class="col-sm-4">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header"></li>
+              <li class="nav-header">Upcoming Shows</li>
              <% Concert.limit(3).order("RANDOM()").each do |concert| %>
                <div class="row sidebar-concert">
                  <div class='left'>
                    <li class ="sidebar-artist"><%= concert.artist %></li>
-                   <li>on <%= concert.date.strftime("%-m-%-d-%Y") %> at <%=concert.time%></li>
-                   <li>for $<%= concert.ticket_price %></li>
-                   <li><%= concert.tickets_required %> tickets until funded</li>
-                   <li>by <%= concert.date_campaign_ends %></li>
-                   <li>in <%= concert.city %></li>
-                   <li><%= concert.description %></li>
+                   <li>Date <%= concert.date.strftime("%-m-%-d-%Y") %> </li>
+                   <li>Time: <%=concert.time%></li>
+                   <li>Price $<%= concert.ticket_price %></li>
+                   <li>Tickets until funded: <%= concert.tickets_required %> </li>
+                   <li>Date campaign ends: <br><%= concert.date_campaign_ends.strftime("%-m-%-d-%Y") %></li>
+                   <li>Location: <%= concert.city %></li>
+                   <li>Description:<%= concert.description %></li>
                 </div>
                 <div class='right'>
                   <li class="sidebar-pic"> <img src="<%= artist_getinfo(concert.artist)['image'][2]['#text'] %>"></li>
                   <li> 
                     <%= link_to("Buy a ticket", show_share_path(concert.id), class:"btn btn-success") %></button>
                   </li>
-                   
+                  <li>
+                    <button type="button" class="btn play-button">Play</button></li>
+                    <audio class="js-player" src="<%=artist_playtrack(@concert.city)%>">
+                  </li>
                 </div>
                </div>
              <% end %>
