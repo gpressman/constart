@@ -22,16 +22,24 @@
 
 $(document).ready(function () {
 	var player = document.querySelector('.js-player');
-	var playButton = $(".play-button");
+	var playButtons = $(".play-button");
 
-	playButton.click(function () {
+	playButtons.click(function (event) {
+		var playButton = $(event.target);
+
+		if (player.src !== playButton.data('src')) {
+			player.pause();
+			playButtons.text('Play');
+			player.src = playButton.data('src');
+		}
+
 		if (player.paused) {
 			player.play();
-			playButton.text("Pause")
+			playButton.text("Pause");
 		}
 		else  {
 			player.pause();
-			playButton.text("Play")
+			playButton.text("Play");
 		}
 		
 	});

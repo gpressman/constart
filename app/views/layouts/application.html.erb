@@ -87,11 +87,11 @@
                 <div class='right'>
                   <li class="sidebar-pic"> <img src="<%= artist_getinfo(concert.artist)['image'][2]['#text'] %>"></li>
                   <li> 
-                    <%= link_to("Buy a ticket", show_share_path(concert.id), class:"btn btn-success") %></button>
+                    <%= link_to("Buy a ticket", show_share_path(concert.id), class:"btn btn-success" ) %></button>
                   </li>
                   <li>
-                    <button type="button" class="btn play-button">Play</button></li>
-                    <audio class="js-player" src="<%=artist_playtrack(@concert.city)%>">
+                    <button type="button" class="btn play-button" data-src="<%=artist_playtrack(concert.artist)%>"
+                      >Play</button></li>
                   </li>
                 </div>
                </div>
@@ -106,6 +106,6 @@
       </footer>
 
    <!--  </div> --> <!-- /container -->
-
+      <audio class="js-player">
   </body>
 </html>

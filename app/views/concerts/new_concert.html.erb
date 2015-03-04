@@ -18,10 +18,8 @@
 			<li> Date campaign ends:<%= @concert.date_campaign_ends.strftime("%-m-%-d-%Y") %> </li>
 			<li>Description: <%=  @concert.description %><li>
 			<li><%= link_to("Buy a ticket", buy_ticket_path(@concert.id), method: :post, class:"btn btn-success" ) %>
-			<button type="button" class="btn play-button">Play</button></li>
+			<button type="button" class="btn play-button" data-src="<%=artist_playtrack(@concert.artist)%>">Play</button></li>
 		</ul>
 	</div>
-	
-	<audio class="js-player" src="<%=artist_playtrack(@concert.city)%>">
 	
 <% end %>
