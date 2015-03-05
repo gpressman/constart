@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
 	end
 
 	def request_concert
-	@request_info = params.permit(:venue_id, :artist, :city, :date, :description)
+	@request_info = params.permit(:venue_id, :artist, :city, :date, :description, :address)
 	@request = Request.new(@request_info)
 	@request.user_id = current_user.id
   @request.artist_getimage()

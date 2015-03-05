@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/request_form' => 'page#request_form', as: 'request_form'
 
-  get '/venue_page' => 'venues#venue_page'
+  get '/venue_page' => 'venues#venue_page', as: 'venue_functions'
 
   get '/venue_page/:id' => 'venues#return_form', as: 'return_form'
 

@@ -16,6 +16,10 @@
 
 }
 
+.get-started-button:hover {
+	background-color: #f04570;
+}
+
 .home-body-text {
 	background-color: rgba(1, 1, 1, 0.25)
 }
@@ -45,8 +49,6 @@
 	margin-right: 400px;
 	color: white;
 	font-weight: 700;
-
-
 
 }
 
@@ -82,6 +84,10 @@
 
 .button-get-started, .button-get-started:visited {
 	color: white;
+
+}
+
+.button-get-started:hover {
 
 }
 
@@ -133,7 +139,7 @@
 }
 
 .show-concert:hover {
-	background-color: #5CE62E;
+	background-color: #0d0;
 }
 
 .mass-email-button {
@@ -145,7 +151,7 @@
 .mass-email-button:hover {
 	color: white;
 	font-weight: 500;
-	background-color: #FF7519;
+	background-color: #ff7a22;
 }
 
 .request-button:hover {
@@ -153,7 +159,7 @@
 }
 
 .update-button:hover {
-	background-color: #19A3A3;
+	background-color: #85adad;
 
 }
 
@@ -164,4 +170,12 @@
 
 .active-concert-pic {
 	width: 350px;
+}
+
+.btn-success:visited {
+	color: white;
+}
+
+.btn-danger:visited {
+	color:white;
 }
