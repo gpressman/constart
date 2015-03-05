@@ -6,10 +6,9 @@
 	<li><%=  request.city  %></li>
 	<li><%=  request.date.strftime("%-m-%-d-%Y") %></li>
 	<li><%=  request.description %></li>
-	<li><button type="button" class="btn btn-success">
-		<%= link_to("Reply to request", return_form_path(request.id)  ) %></button>
-		<button type="button" class="btn btn-danger">
-		<%= link_to("Decline request", refuse_path(request.id), method: :post) %></button>
+	<li>
+		<%= link_to("Reply to request", return_form_path(request.id), class:"btn btn-success"  ) %></button>
+		<%= link_to("Decline request", refuse_path(request.id), method: :post, class:"btn btn-danger") %>
 		<button type="button" class="btn play-button" 
 		data-src="<%=request.song%>">Play</button>
     </li>
