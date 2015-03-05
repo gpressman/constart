@@ -56,7 +56,7 @@
                 <li><%= link_to('Account', update_profile_path) %></li>
                 <li><%= link_to( "About", about_path)  %></li>
                 <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
-            <% else  user_signed_in?%>
+            <% else  user_signed_in? %>
                 <li><%= link_to('Functions', user_functions_path) %></li>
                 <li><%= link_to('Account', update_profile_path) %></li>
                 <li><%= link_to( "About", about_path)  %></li>
@@ -83,6 +83,7 @@
                    <li class ="sidebar-artist"><%= concert.artist %></li>
                    <li>Date <%= concert.date.strftime("%-m-%-d-%Y") %> </li>
                    <li>Time: <%=concert.time.strftime("%I:%M %p")%></li>
+                   <li>Venue: <%=concert.venue.name %> </li>
                    <li>Price $<%= concert.ticket_price %></li>
                    <li>Tickets until funded: <%= concert.tickets_required %> </li>
                    <li>Date campaign ends: <br><%= concert.date_campaign_ends.strftime("%-m-%-d-%Y") %></li>
