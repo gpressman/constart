@@ -46,7 +46,7 @@ class RequestsController < ApplicationController
  	@request.status = "replied_to"
  	flash[:notice] = "Reply sent"
  	if  @request.update(@request_info)
-		redirect_to(venue_page_path) 
+		redirect_to(venue_functions_path) 
  	else 
 		render ("return_form")
 	end
@@ -62,7 +62,7 @@ class RequestsController < ApplicationController
    	   @request.status = "refused"
    	   flash[:alert] = "Concert refused"
    	    if @request.save
-   	   	   redirect_to(venue_page_path)
+   	   	   redirect_to(venue_functions_path)
    	   	else
    	   		render("venue_page")
    	   	end
