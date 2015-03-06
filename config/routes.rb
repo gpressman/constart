@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :views
-  resources :venues, except: :new
+  resources :venues, except: [:new, :edit]
 
   
 
