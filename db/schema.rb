@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304191950) do
+ActiveRecord::Schema.define(version: 20150308021218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bands", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.string   "band_name"
+    t.string   "genre"
+    t.text     "description"
+  end
+
+  create_table "bands_users", force: :cascade do |t|
+    t.integer "users_id"
+    t.integer "bands_id"
+  end
+
+  add_index "bands_users", ["bands_id"], name: "index_bands_users_on_bands_id", using: :btree
+  add_index "bands_users", ["users_id"], name: "index_bands_users_on_users_id", using: :btree
 
   create_table "concerts", force: :cascade do |t|
     t.datetime "created_at",         null: false
