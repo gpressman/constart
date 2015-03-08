@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bands
+
   devise_for :views
   resources :venues, except: [:new, :edit]
 
