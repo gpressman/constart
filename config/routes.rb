@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
   get 'update_profile' =>'page#update_profile', as: 'update_profile'
 
-  get '/band_request/:id' => 'bands#band_request' as: 'band_request'
+  get '/band_request/:id' => 'bands#band_request', as: 'band_request'
 
   
 

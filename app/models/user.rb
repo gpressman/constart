@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	has_one :venue 
-	has_many :bands
+	has_and_belongs_to_many :bands
 	has_and_belongs_to_many :concerts
 	has_many :requests
   # Include default devise modules. Others available are:

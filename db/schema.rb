@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308021218) do
+ActiveRecord::Schema.define(version: 20150311041822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20150308021218) do
   end
 
   create_table "bands_users", force: :cascade do |t|
-    t.integer "users_id"
-    t.integer "bands_id"
+    t.integer "user_id"
+    t.integer "band_id"
   end
 
-  add_index "bands_users", ["bands_id"], name: "index_bands_users_on_bands_id", using: :btree
-  add_index "bands_users", ["users_id"], name: "index_bands_users_on_users_id", using: :btree
+  add_index "bands_users", ["band_id"], name: "index_bands_users_on_band_id", using: :btree
+  add_index "bands_users", ["user_id"], name: "index_bands_users_on_user_id", using: :btree
 
   create_table "concerts", force: :cascade do |t|
     t.datetime "created_at",         null: false
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20150308021218) do
     t.string   "birthday"
     t.text     "address"
     t.string   "phone_number"
+    t.integer  "band_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
