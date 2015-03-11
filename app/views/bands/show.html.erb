@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Edit', edit_band_path(@band) %> |
-<%= link_to 'Back', bands_path %>
+<%= link_to 'Back', bands_path %>|
+<%= link_to 'Make a concert', band_request_path %>
+
+
+<%= @band.band_name %>
+<%= @band.genre %>
+<%= @band.description %>
