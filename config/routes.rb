@@ -48,6 +48,8 @@ Rails.application.routes.draw do
 
   get '/band_request/:id' => 'bands#band_request', as: 'band_request'
 
+  get '/user/bands' => 'page#bands', as: 'user_bands'
+
   
 
   

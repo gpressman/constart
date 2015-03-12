@@ -1,0 +1,3 @@
+<% @bands.each do |band| %>
+<%= link_to "#{band.band_name} profile", band_path(band.id), class:"btn button-find-out" %>
+<% end %>

@@ -35,5 +35,9 @@ class PageController < ApplicationController
   def request_form
   	@venues= Venue.all
   end
+
+  def bands
+    @bands= current_user.bands.all
+  end
 end
 
