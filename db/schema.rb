@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311041822) do
+ActiveRecord::Schema.define(version: 20150314224816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,24 @@ ActiveRecord::Schema.define(version: 20150311041822) do
     t.time     "time"
     t.string   "picture"
     t.string   "song"
+    t.integer  "supporter_id"
+  end
+
+  create_table "requests_supporters", force: :cascade do |t|
+    t.integer "requests_id"
+    t.integer "supporters_id"
+  end
+
+  add_index "requests_supporters", ["requests_id"], name: "index_requests_supporters_on_requests_id", using: :btree
+  add_index "requests_supporters", ["supporters_id"], name: "index_requests_supporters_on_supporters_id", using: :btree
+
+  create_table "supporters", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.integer  "request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

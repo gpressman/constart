@@ -1,4 +1,5 @@
 class Request < ActiveRecord::Base
+    has_and_belongs_to_many :supporters
 	belongs_to :venue
 	belongs_to :user
     belongs_to :concert
