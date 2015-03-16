@@ -1,0 +1,10 @@
+<h2><%= @request.artist %></h2>
+
+<ul class="survey-page-list">
+	<li><img src="<%= @request.picture %>" class="active-concert-pic"></li>
+	<li><button type="button" class="btn play-button" data-src="<%= @request.song%>">Play</button></li>
+	<li><%= @request.venue.name %></li>
+	<li><%= @request.city %></li>
+	<li><%= @request.description %></li>
+
+</ul>

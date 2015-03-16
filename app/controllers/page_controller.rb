@@ -36,6 +36,10 @@ class PageController < ApplicationController
   	@venues= Venue.all
   end
 
+  def survey
+    @venues = Venue.all
+  end
+
   def bands
     @bands= current_user.bands.all
   end

@@ -1,0 +1,37 @@
+<p> To request a concert, fill out this form, and the venue will send you a response. <p>
+
+<%= form_tag(create_survey_path) do %>
+
+
+<form class="form-inline">
+<div class="form-group">
+<label for="artist">Artist</label> 
+<input type="text" class="form-control" name="artist">
+</div>
+
+<form class="form-inline">
+<div class="form-group">
+<label for="city">City</label>
+<input type="dropdown" class="form-control" name="city">
+</div>
+
+
+<select name="venue_id">
+	<% @venues.each do |venue| %>
+<option value="<%=venue.id%>"><%=venue.name%></option>
+    <% end %>
+</select>
+<br>
+<br>
+
+
+<form class="form-inline">
+<div class="form-group">
+<label for="description">Description</label>
+<textarea rows="4" cols="50" class="form-control" name="description">
+</textarea>
+</div>
+
+
+<div><input class="btn btn-default" type="submit" value="Start campaign!" ></div>
+<% end %>

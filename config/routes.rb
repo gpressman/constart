@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   post '/request_concert' => 'requests#request_concert'
 
+  post '/create_survey' => 'requests#create_survey', as: 'create_survey'
+
+  get '/survey' => 'page#survey', as: 'survey'
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   get '/user_functions' => 'page#user_functions', as: 'user_functions'
@@ -35,6 +39,8 @@ Rails.application.routes.draw do
   post '/decline/:id' => 'requests#decline', as: 'decline'
 
   get '/new_concert/:id' => 'concerts#new_concert', as: 'show_share'
+
+  get '/new_request/:id' => 'requests#new_request', as: 'request_share'
 
   post '/purchase/:id' => 'concerts#purchase', as: 'buy_ticket'
 

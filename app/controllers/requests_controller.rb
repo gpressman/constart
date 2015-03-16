@@ -19,6 +19,26 @@ class RequestsController < ApplicationController
 	  	end
   end
 
+  def create_survey
+  @request_info = params.permit(:venue_id, :artist, :city, :date, :description, :address)
+  @request = Request.new(@request_info)
+  @request.user_id = current_user.id
+  @request.artist_getimage()
+  @request.artist_getsong()
+  @request.status = "survey"
+    flash[:notice] = "Concert Requested"
+      if  @request.save
+        redirect_to(request_share_path(@request.id))
+      else
+        render('survey')
+      end
+  end
+  
+  def new_request
+    @request =Request.find(params[:id])
+
+  end
+
   def edit
   	@request= current_user.venue.requests.find(params[:id])
   end
