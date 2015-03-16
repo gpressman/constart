@@ -2,6 +2,7 @@ class RequestsController < ApplicationController
 
 	def new
 	request = Request.new
+  supporter = Supporter.new
 	end
 
 	def request_concert
@@ -22,7 +23,8 @@ class RequestsController < ApplicationController
   def create_survey
   @request_info = params.permit(:venue_id, :artist, :city, :date, :description, :address)
   @request = Request.new(@request_info)
-  @request.user_id = current_user.id
+  @request.goal = (@request.venue.capacity*0.3).floor
+  @request.user_id = current_user.id 
   @request.artist_getimage()
   @request.artist_getsong()
   @request.status = "survey"
@@ -47,6 +49,17 @@ class RequestsController < ApplicationController
   	@request= current_user.venue.requests.find(params[:id])
   	@request.status = "accepted"
   	redirect_to(user_functions_path)
+  end
+
+  def support_request
+    @request = Request.find(params[:id])
+    @supporter_info = params.permit(:email)
+    @supporter = Supporter.new
+    unless @crequest.supporters.include?(@supporter)
+        @request.supporters.push(@supporter)
+    end
+    if @supporter.save && @request.save
+    end
   end
 
   def decline

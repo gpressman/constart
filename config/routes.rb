@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get '/survey' => 'page#survey', as: 'survey'
 
+  post '/support' => 'requests#support_request', as: 'support_request'
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   get '/user_functions' => 'page#user_functions', as: 'user_functions'
