@@ -54,12 +54,26 @@ class RequestsController < ApplicationController
   def support_request
     @request = Request.find(params[:id])
     @supporter_info = params.permit(:email)
-    @supporter = Supporter.new
-    unless @crequest.supporters.include?(@supporter)
+    @supporter = Supporter.new(@supporter_info)
+    @request.goal -=1
+    flash[:notice] = "Added to supporter list"
+    @supporter.save
+    unless @request.supporters.include?(@supporter)
         @request.supporters.push(@supporter)
     end
     if @supporter.save && @request.save
+      ConcertMailer.new_supporter_email(@request, @supporter).deliver_now
+      flash[:notice] = "Added to supporter list"
+      if @request.goal < 1
+         @request.status = "supported"
+         @request.save
+      end
+      redirect_to(home_path)
+    else
+        flash[:alert] = "We couldn't process your order, try again later."
+      render 'new_request'
     end
+ 
   end
 
   def decline

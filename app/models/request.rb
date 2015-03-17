@@ -10,6 +10,7 @@ class Request < ActiveRecord::Base
 	scope :accepted, -> {where(status: "accepted")}
 	scope :declined, -> {where(status: "declined")}
     scope :survey, -> {where(status: "survey")}
+    scope :supported, ->{where(status: "supported")}
 	
     def artist_getimage()
         artist_name = URI.escape(artist)

@@ -27,5 +27,13 @@ class ConcertMailer < ApplicationMailer
 		@user = user.email
 		mail(to: @user, subject: "#{concert.artist} in #{concert.city} purchase confirmation" )
 	end
+
+	def new_supporter_email(request, supporter)
+		@request = request
+		@supporter = supporter.email
+		mail(to: @supporter, subject: "#{request.artist} in #{request.city} support confirmation" )
+	end
+
+
 end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316213621) do
+ActiveRecord::Schema.define(version: 20150317003033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,12 +81,12 @@ ActiveRecord::Schema.define(version: 20150316213621) do
   end
 
   create_table "requests_supporters", force: :cascade do |t|
-    t.integer "requests_id"
-    t.integer "supporters_id"
+    t.integer "request_id"
+    t.integer "supporter_id"
   end
 
-  add_index "requests_supporters", ["requests_id"], name: "index_requests_supporters_on_requests_id", using: :btree
-  add_index "requests_supporters", ["supporters_id"], name: "index_requests_supporters_on_supporters_id", using: :btree
+  add_index "requests_supporters", ["request_id"], name: "index_requests_supporters_on_request_id", using: :btree
+  add_index "requests_supporters", ["supporter_id"], name: "index_requests_supporters_on_supporter_id", using: :btree
 
   create_table "supporters", force: :cascade do |t|
     t.string   "first_name"

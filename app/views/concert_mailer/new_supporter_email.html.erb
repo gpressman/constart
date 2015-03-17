@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Thank you for supporting <%= @request.artist %> in <%= @request.city %>.  If it receives enough support you will receive information on how to purchase a ticket.  If you really want to make this concert happen, share this link with your friends and increase the odds.  <%= link_to("#{@request.artist} in #{@request.city}", request_share_path(@request.id)) %>
+    </p>
+    <br>
+    
+    <p><%= link_to("Sign in", new_user_session_path) %><%= link_to("Constart", home_path) %> </p>
+  </body>
+</html>

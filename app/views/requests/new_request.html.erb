@@ -11,3 +11,16 @@
 
 
 
+
+<%= form_tag(support_request_path) do %>
+
+	
+<form class="form-inline">
+<div class="form-group">
+<label for="email">Email</label> 
+<input type="email" class="form-control" name="email">
+</div>
+	
+
+<div> <%= submit_tag 'Update', class:"btn" %> </div>
+<% end %>
