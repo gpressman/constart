@@ -90,10 +90,10 @@ class RequestsController < ApplicationController
   def update
 	@request = current_user.venue.requests.find(params[:id])
 	@request_info = params.require(:request).permit(:venue_id, :artist, :date, :time, :ticket_price, :tickets_required, :date_campaign_ends)
- 	@request.status = "replied_to"
+ 	@request.status = "funding"
  	flash[:notice] = "Reply sent"
  	if  @request.update(@request_info)
-		redirect_to(venue_functions_path) 
+		redirect_to(show_share_path(@request.id)) 
  	else 
 		render ("return_form")
 	end

@@ -1,11 +1,12 @@
 class ConcertMailer < ApplicationMailer
 
-	def mass_email(concert, message)
-		@concert = concert
+	def mass_email(request, message)
+		@request = request
 		@message = message
-		@emails = concert.users.all.map {|user| user.email}
-		@emails.push(concert.venue.user.email)
-		mail(to: @emails, subject: "Update from concert #{concert.artist} in #{concert.city}")
+		@emails = request.supporters.all.map {|user| user.email}
+		@emails.push(request.venue.user.email)
+		@emails.push(request.user.email)
+		mail(to: @emails, subject: "Update from #{request.artist} in #{request.city}")
 	end
 
 	def concert_funded(concert)

@@ -6,7 +6,7 @@ class Request < ActiveRecord::Base
     belongs_to :band
 	
 	scope :sent, -> {where(status: "sent")}
-	scope :replied, -> { where(status: "replied_to") }
+	scope :funding, -> { where(status: "funding") }
 	scope :accepted, -> {where(status: "accepted")}
 	scope :declined, -> {where(status: "declined")}
     scope :survey, -> {where(status: "survey")}

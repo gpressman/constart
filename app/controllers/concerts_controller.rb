@@ -19,6 +19,7 @@ before_action :authenticate_user!, only: :purchase
 
 	def new_concert
 		@concert = Concert.find(params[:id])
+		@request = Request.find(params[:id])
 		
 	end
 
