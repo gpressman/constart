@@ -2,7 +2,6 @@
 <ul class="return-form-description" >
 	<li><img src="<%= @request.picture%>"></li>
 	<li>City: <%=  @request.city  %>
-    <li> Date request: <%=  @request.date.strftime("%-m-%-d-%Y") %>
     <li>Description: <%   @request.description %>
 </ul>
 
@@ -22,6 +21,8 @@
 	<%= f.text_field :tickets_required %>
 
 	<%= f.date_field :date_campaign_ends %>
+
+	<%= text_area_tag(:description, "description", size: "50x4") %>
 
 	<%= f.submit 'Send Concert' %>
 <% end %>
