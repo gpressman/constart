@@ -11,7 +11,7 @@
   <div class="row">
   	  <div class="col-sm-4">
 			<h3> Active concerts </h3>
-			<% current_user.requests.accepted.each do |request| %>
+			<% current_user.requests.funding.each do |request| %>
 				<ul class="active-concert-list">
 					<li class="accepted-artist"><%=  request.artist %></li>
 					<li><img src="<%= request.picture %>" class="active-concert-pic"></li>
@@ -31,17 +31,14 @@
   	  </div>
 	  <div class="col-sm-4">
 		  <h3>Concerts awaiting approval </h3>
-		  <% current_user.requests.replied.each do |request| %>
+		  <% current_user.requests.survey.each do |request| %>
 		  	<ul class="awaiting-approval-list">
 		  		<li class="awaiting-approval-artist" > <%=  request.artist %></li>
 		  		<li><img src="<%=request.picture %>" class="awaiting-approval-pic"></li>
 				<li>City: <%=  request.city  %></li>
 				<li>Venue: <%=	 request.venue.name %></li>
-				<li>Date: <%=  request.date.strftime("%-m-%-d-%Y") %></li>
-				<li>Time: <%=  request.time.strftime("%I:%M %p") %></li>
 				<li>Price $<%=  request.ticket_price %></li>
 				<li>Tickets required: <%=  request.tickets_required  %></li>
-				<li>Date campaign ends: <%=  request.date_campaign_ends.strftime("%-m-%-d-%Y") %></li>
 				<li>Description: <%=  request.description %></li>	
 				<li>
 				<%= link_to("Accept", accept_path(request.id), method: :post, class:"btn btn-success"  ) %>
