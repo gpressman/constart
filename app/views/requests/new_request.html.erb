@@ -1,12 +1,12 @@
-<h2><%= @request.artist %></h2>
+<h2 class="survey-artist-name"><%= @request.artist %></h2>
 
 <ul class="survey-page-list">
 	<li><img src="<%= @request.picture %>" class="active-concert-pic"></li>
 	<li><button type="button" class="btn play-button" data-src="<%= @request.song%>">Play</button></li>
-	<li><%= @request.venue.name %></li>
-	<li><%= @request.city %></li>
-	<li><%= @request.description %></li>
-	<li><%= @request.goal %></li>
+	<li>Venue:<%= @request.venue.name %></li>
+	<li>City: <%= @request.city %></li>
+	<li>Description: <%= @request.description %></li>
+	<li>Supporters needed: <%= @request.goal %></li>
 </ul>
 
 
@@ -22,5 +22,5 @@
 </div>
 	
 
-<div> <%= submit_tag 'Update', class:"btn" %> </div>
+<div> <%= submit_tag 'Support!', class:"btn btn-success" %> </div>
 <% end %>
