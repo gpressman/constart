@@ -17,7 +17,7 @@ before_action :authenticate_user!, only: :purchase
         end
     end
 
-	def new_concert
+	def new_concert	
 		@request = Request.find(params[:id])
 		
 	end
@@ -46,11 +46,11 @@ before_action :authenticate_user!, only: :purchase
 	end
 
 	def email_users
-		@concert = Concert.find(params[:id])
+		@concert = Request.find(params[:id])
 	end
 
 	def mass_email
-		@concert = Concert.find(params[:id])
+		@concert = Request.find(params[:id])
 		if ConcertMailer.mass_email(@concert, params[:email_users]).deliver_now
 			flash[:notice] = "Email sent"
 			redirect_to(user_functions_path)
