@@ -1,35 +1,30 @@
 <%= form_tag(process_user_data_path) do %>
+<h3 class="user-update"> Update User Info </h3>
+
 <div class ="container">
 	<div class="row">
-		<div class="col-sm-4">
-			<p> Name: <%= @user.name %> <p>
-			<p> Birthday: <%= @user.birthday %> <p>
-			<p> Address: <%= @user.address %> <p>
-			<p> Phone number: <%= @user.phone_number %> <p>
-		</div>
-		<div class="col-sm-4">
 			<form class="form-inline">
 				<div class="form-group">
-					<label for="name">Your name</label> 
+					<label for="name">Name: <%= @user.name %> </label> 
 					<input type="text" class="form-control" name="name">
 				</div>	
 			<form class="form-inline">
 				<div class="form-group">
-					<label for="phone_number">Phone</label> 
+					<label for="phone_number">Phone number: <%= @user.phone_number %></label> 
 					<input type="text" class="form-control" name="phone_number">
 				</div>
 			<form class="form-inline">
 				<div class="form-group">
-					<label for="address">Address</label> 
+					<label for="address">Address: <%= @user.address %></label> 
 					<input type="text" class="form-control" name="address">
 				</div>
 			<form class="form-inline">
 				<div class="form-group">
-					<label for="birthday">Birthday</label> 
+					<label for="birthday">Birthday: <%= @user.birthday %></label> 
 					<input type="text" class="form-control" name="birthday">
 				</div>	
 			<div> <%= submit_tag 'Update', class:"btn" %> </div>
-		</div>
+		
 		<% end %>
 	</div>
 </div>
