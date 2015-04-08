@@ -3,6 +3,7 @@
 
 <div class ="container">
 	<div class="row">
+		<div class="col-sm-8">
 			<form class="form-inline">
 				<div class="form-group">
 					<label for="name">Name: <%= @user.name %> </label> 
@@ -24,6 +25,7 @@
 					<input type="text" class="form-control" name="birthday">
 				</div>	
 			<div> <%= submit_tag 'Update', class:"btn" %> </div>
+	    </div>
 		
 		<% end %>
 	</div>
