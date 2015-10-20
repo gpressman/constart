@@ -12,14 +12,7 @@ class Request < ActiveRecord::Base
     scope :survey, -> {where(status: "survey")}
     scope :supported, ->{where(status: "supported")}
 	
-    # def artist_getimage()
-    #     artist_name = URI.escape(artist)
-    #     artist_info = HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=#{artist_name}&api_key=a6200e95f6ee72b0852822a2df3a4dd9&format=json")
-    #     data = JSON.parse(artist_info.body)
-    #     self.picture =  data['artist']['image'][4]['#text']
-    # end
-
-    def artist_getimage()
+      def artist_getimage()
         artist_name =URI.escape(artist)
         artist_info= HTTParty.get("https://api.spotify.com/v1/search?type=artist&q=#{artist_name}")
         actual_info= JSON.parse(artist_info.body)
