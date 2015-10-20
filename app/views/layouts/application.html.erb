@@ -77,7 +77,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Upcoming Shows</li>
-             <% Request.sent.limit(3).order("RANDOM()").each do |concert| %>
+             <% Request.limit(3).order("RANDOM()").each do |concert| %>
                <div class="row sidebar-concert">
                  <div class='left'>
                    <li class ="sidebar-artist"><%= concert.artist %></li>
