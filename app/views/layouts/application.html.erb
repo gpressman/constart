@@ -90,18 +90,17 @@
                    <li>Venue: <%=concert.venue.name %> </li>
                    <li>Price $<%= concert.ticket_price %></li>
                    <li>Tickets until funded: <%= concert.tickets_required %> </li>
-                   
                    <li>Location: <%= concert.city %></li>
                    <li>Description:<%= concert.description %></li>
+                   <li><%=concert.goal %> supporters needed </li>
                 </div>
                 <div class='right'>
                   <li class="sidebar-pic"> <img src="<%= concert.picture%>" class="sidebar-picture"></li>
                   <li> 
-                    <%= link_to("Buy ticket", show_share_path(concert.id), class:"btn btn-success" ) %></button>
+                    <%= link_to("Support this concert", request_share_path(concert.id), class:"btn btn-success" ) %></button>
                     <button type="button" class="btn play-button" data-src="<%=concert.song%>">Play</button></li>
                   </li>
-                  <li>
-                    
+                  <li>    
                   </li>
                 </div>
                </div>
