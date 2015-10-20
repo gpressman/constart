@@ -81,12 +81,16 @@
                <div class="row sidebar-concert">
                  <div class='left'>
                    <li class ="sidebar-artist"><%= concert.artist %></li>
-                   <li>Date <%= concert.date.strftime("%-m-%-d-%Y") %> </li>
-                   <li>Time: <%=concert.time.strftime("%I:%M %p")%></li>
+                   <% unless concert.date.nil? %>
+                     <li>Date <%= concert.date.strftime("%-m-%-d-%Y") %></li>
+                   <% end %>
+                   <% unless concert.time.nil? %>
+                     <li>Time: <%= concert.time.strftime("%I:%M %p") %></li>
+                    <% end%>
                    <li>Venue: <%=concert.venue.name %> </li>
                    <li>Price $<%= concert.ticket_price %></li>
                    <li>Tickets until funded: <%= concert.tickets_required %> </li>
-                   <li>Date campaign ends: <br><%= concert.date_campaign_ends.strftime("%-m-%-d-%Y") %></li>
+                   
                    <li>Location: <%= concert.city %></li>
                    <li>Description:<%= concert.description %></li>
                 </div>
