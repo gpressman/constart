@@ -9,7 +9,7 @@
 				<li><%=  request.city  %></li>
 				<li><%=  request.description %></li>
 				<li>
-					<%= link_to("Reply to request", return_form_path(request.id), class:"btn btn-success"  ) %>
+					<%= link_to("Reply to request", accept_path(request.id), class:"btn btn-success"  ) %>
 					<%= link_to("Decline request", refuse_path(request.id), method: :post, class:"btn btn-danger") %>
 					<button type="button" class="btn play-button" 
 					data-src="<%=request.song%>">Play</button>
