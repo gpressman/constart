@@ -62,15 +62,6 @@ request.artist_getsong()
 request.artist_getimage()
 request.save
 
-request= Request.new(artist: "Nas", venue_id: 1, date: Faker::Date.forward(500), status: "sent", user_id: 6 )
-request.artist_getsong()
-request.artist_getimage()
-request.save
-
-request= Request.new(artist: "The Fugees", venue_id: 1, date: Faker::Date.forward(500), status: "sent", user_id: 6 )
-request.artist_getsong()
-request.artist_getimage()
-request.save
 
 request= Request.new(artist: "Eoto", venue_id: 1, date: Faker::Date.forward(500), status: "sent", user_id: 6 )
 request.artist_getsong()
