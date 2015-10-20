@@ -2,14 +2,14 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<h2 class="venue-header">Requests for <%=current_user.venue.name %></h2>
-			<%   current_user.venue.requests.sent.each do |request| %>
+			<%   current_user.venue.requests.supported.each do |request| %>
 			<ul class="request-list">
 				<li><img src="<%=request.picture%>"></li>
 				<li><%=  request.artist %></li>
 				<li><%=  request.city  %></li>
 				<li><%=  request.description %></li>
 				<li>
-					<%= link_to("Reply to request", accept_path(request.id), class:"btn btn-success"  ) %>
+					<%= link_to("Reply to request", return_form_path(request.id), class:"btn btn-success"  ) %>
 					<%= link_to("Decline request", refuse_path(request.id), method: :post, class:"btn btn-danger") %>
 					<button type="button" class="btn play-button" 
 					data-src="<%=request.song%>">Play</button>
