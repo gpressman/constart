@@ -62,7 +62,7 @@ class RequestsController < ApplicationController
         @request.supporters.push(@supporter)
     end
     if @supporter.save && @request.save
-      ConcertMailer.new_supporter_email(@request, @supporter).deliver_now
+      # ConcertMailer.new_supporter_email(@request, @supporter).deliver_now
       flash[:notice] = "Added to supporter list"
       if @request.goal < 1
          @request.status = "supported"
