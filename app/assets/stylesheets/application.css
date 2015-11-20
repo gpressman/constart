@@ -39,8 +39,10 @@
 	font-size: 1.5em;
 	border-bottom: ridge 1.8px;
 	padding: 5%;
+
 }
 
 .sidebar-picture {
 	width: 175px;
+	overflow: hidden;
 }
