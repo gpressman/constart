@@ -43,6 +43,7 @@
 }
 
 .sidebar-picture {
-	width: 175px;
+	max-width: 175px;
+	max-height: 209px;
 	overflow: hidden;
 }
